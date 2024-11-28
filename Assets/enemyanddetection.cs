@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class enemyanddetection : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float angle;
+    public Transform target;
+    public bool IsInFOV(Transform target, float viewAngle)
     {
-        
-    }
+        Vector3 directionToTarget = (target.position - transform.position).normalized;
 
-    // Update is called once per frame
-    void Update()
+        float angle = Vector3.Dot(transform.forward, directionToTarget);
+
+        float degrees = Mathf.Acos(angle) * Mathf.Rad2Deg;
+
+        return degrees < viewAngle / 2;
+    }
+    private void OnDrawGizmos()
     {
-        
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.forward);
     }
 }
