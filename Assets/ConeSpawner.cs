@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ConeSpawner : MonoBehaviour
@@ -16,5 +17,4 @@ public class ConeSpawner : MonoBehaviour
             spawnedObject.AddComponent<ConeTestObject>();
         }
     }
-
 }
