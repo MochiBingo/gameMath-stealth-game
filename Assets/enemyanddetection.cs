@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class enemyanddetection : MonoBehaviour
 {
-    public float cutoff;
+    public float cutoff = 45f;
 
     public bool testCone (Vector3 inputPoint)
     {
