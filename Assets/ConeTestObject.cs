@@ -17,7 +17,7 @@ public class ConeTestObject : MonoBehaviour
         }
 
         Gizmos.color = coneTester.testCone(this.transform.position) ?
-            Color.green : Color.red;
+            Color.green : Color.clear;
         Gizmos.DrawSphere(this.transform.position, 0.7f);
     }
 }

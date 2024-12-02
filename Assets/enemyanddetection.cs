@@ -9,8 +9,14 @@ public class enemyanddetection : MonoBehaviour
 
     public bool testCone (Vector3 inputPoint)
     {
-        float cosAngle = Vector3.Dot((inputPoint - this.transform.forward).normalized, this.transform.forward);
-        float angle = Mathf.Acos(cosAngle) * Mathf.Rad2Deg;
-        return angle < cutoff;
+        foreach (var enemy in Enemy.all)
+        {
+            float cosAngle = Vector3.Dot((inputPoint - enemy.transform.forward).normalized, enemy.transform.forward);
+            float angle = Mathf.Acos(cosAngle) * Mathf.Rad2Deg;
+            if (angle < cutoff)
+                return true;
+        }
+
+        return false;
     }
 }
